@@ -44,8 +44,8 @@ subtractIndex = () => {
         
         <br />
         
-        <button onClick={this.subtractIndex}>Previous card</button>
-        <button onClick={this.incrementIndex}>Next card</button>	
+        <button onClick={this.subtractIndex} disabled={this.state.index===0}>Previous card</button>
+        <button onClick={this.incrementIndex} disabled={this.state.index===this.props.cards.length-1}>Next card</button>	
 
         <h2>Card Viewer</h2>
         <hr />
