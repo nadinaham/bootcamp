@@ -1,7 +1,7 @@
 import { BrowserRouter } from "react-router-dom";
 
 import { Provider } from 'react-redux';
-import firebase from 'firebase/app';
+import firebase from 'firebase/compat/app';
 import { createStore, combineReducers } from 'redux';
 import {
   ReactReduxFirebaseProvider,
@@ -12,9 +12,6 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-
-import { BrowserRouter } from 'react-router-dom';
-
 
 const firebaseConfig = {
   apiKey: 'AIzaSyAC0qaud5YwkNZV7ADHcwf9rpoGH5TPqEs',
