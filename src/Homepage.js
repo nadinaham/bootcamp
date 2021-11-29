@@ -10,10 +10,21 @@ class Homepage extends React.Component {
     }
 
 render() {
+        const decks = Object.keys(this.state.homepage).map(deckId => {
+            
+            const deck = this.state.homepage[deckId];
+
+            return (
+            <div key={deckId}>
+                <Link to={`/viewer/${deckId}`}>{deck.name}</Link>
+            </div>
+            );
+        });
+
         return(
         <div>
+        <h3>Flashcard Decks</h3> {decks}
         <Link to="/editor">Go to card editor</Link>
-
         <Link to="/viewer">Go to card viewer</Link>
         </div>
         );
