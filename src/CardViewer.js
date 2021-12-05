@@ -38,6 +38,12 @@ subtractIndex = () => {
     }));
 }
 
+componentDidUpdate(prevProps) {
+    if (this.props.cards !== prevProps.cards) {
+      this.setState({ cards: this.props.cards });
+    }
+  }
+
   render() {
       if (!isLoaded(this.props.cards)) {
         return <div>Loading...</div>;
