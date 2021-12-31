@@ -1,7 +1,12 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+
 import { BrowserRouter } from "react-router-dom";
 
 import { Provider } from 'react-redux';
-import firebase from 'firebase/compat/app';
+import firebase from 'firebase/app';
+import 'firebase/database';
 import { createStore, combineReducers } from 'redux';
 import {
   ReactReduxFirebaseProvider,
@@ -9,40 +14,36 @@ import {
 } from 'react-redux-firebase';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-
 const firebaseConfig = {
-  apiKey: 'AIzaSyAC0qaud5YwkNZV7ADHcwf9rpoGH5TPqEs',
-  authDomain: 'bootcamp-ce748.firebaseapp.com',
-  databaseURL: 'https://bootcamp-ce748.firebaseio.com',
-  projectId: 'bootcamp-ce748',
-  storageBucket: 'bootcamp-ce748.appspot.com',
-  messagingSenderId: '782124421793',
-  appId: '1:782124421793:web:b26b23317989a449dad6e0',
+  apiKey: "AIzaSyDGx-YGRrILqm6HDlOamKklOU5DhdBG7MM",
+  authDomain: "bootcamp-418f7.firebaseapp.com",
+  databaseURL: "https://bootcamp-418f7-default-rtdb.firebaseio.com",
+  projectId: "bootcamp-418f7",
+  storageBucket: "bootcamp-418f7.appspot.com",
+  messagingSenderId: "1003257137244",
+  appId: "1:1003257137244:web:b3d792f287381a05db3e99"
 };
 
 firebase.initializeApp(firebaseConfig);
 
 // Add firebase to reducers
 const rootReducer = combineReducers({
-    firebase: firebaseReducer,
-  });
-  
-  // Create store with reducers and initial state
-  const store = createStore(rootReducer, composeWithDevTools());
-  
-  // react-redux-firebase config
-  const rrfConfig = {
-    userProfile: 'users',
-  };
-  
-  const rrfProps = {
-    firebase,
-    config: rrfConfig,
-    dispatch: store.dispatch,
-  };  
+  firebase: firebaseReducer,
+});
+
+// Create store with reducers and initial state
+const store = createStore(rootReducer, composeWithDevTools());
+
+// react-redux-firebase config
+const rrfConfig = {
+  userProfile: 'users',
+};
+
+const rrfProps = {
+  firebase,
+  config: rrfConfig,
+  dispatch: store.dispatch,
+};
 
 ReactDOM.render(
   <Provider store={store}>
