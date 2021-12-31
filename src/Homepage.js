@@ -18,10 +18,11 @@ import 'firebase/functions'
 // }
 
 const Homepage = props => {
+  console.log(props.homepage)
+  
   if (!isLoaded(props.homepage)) {
     return <div>Loading...</div>;
   }
-  
     const decks = Object.keys(props.homepage).map(deckId => {
       return (
         <div key={deckId}>
@@ -41,6 +42,7 @@ const Homepage = props => {
   };
   
   const mapStateToProps = state => {
+    console.log(state.firebase)
     return { homepage: state.firebase.data.homepage };
   };
   
